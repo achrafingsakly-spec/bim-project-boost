@@ -1,78 +1,85 @@
-import { Award, Building, Users, FileSearch } from "lucide-react";
+import { Award, Building, Users, FileSearch, Quote } from "lucide-react";
+
+const credentials = [
+  { icon: Award, text: "Ingénieur Génie Civil diplômé" },
+  { icon: Building, text: "Double culture terrain / BIM" },
+  { icon: Users, text: "AMO BIM – Référent BIM adjoint" },
+  { icon: FileSearch, text: "SNCF Gares & Connexions" },
+];
 
 const CredibilitySection = () => {
   return (
-    <section id="profil" className="py-20 md:py-28 bg-primary text-primary-foreground scroll-mt-20">
-      <div className="container mx-auto px-4">
+    <section id="profil" className="py-24 md:py-32 bg-primary text-primary-foreground scroll-mt-20 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent/3 rounded-full blur-3xl" />
+      
+      <div className="container relative mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Section header */}
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 tracking-tight">
               Votre interlocuteur BIM
             </h2>
-            <div className="w-20 h-1 bg-accent rounded-full mx-auto" />
+            <div className="w-20 h-1.5 bg-gradient-to-r from-accent to-orange-glow rounded-full mx-auto" />
           </div>
 
-          {/* Profile card */}
-          <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-primary-foreground/20">
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              {/* Avatar placeholder */}
-              <div className="w-24 h-24 rounded-2xl bg-accent flex items-center justify-center shrink-0 shadow-lg">
-                <span className="text-3xl font-bold text-accent-foreground">AS</span>
+          {/* Profile card - Glass effect */}
+          <div className="glass-card-dark p-8 md:p-12">
+            <div className="flex flex-col md:flex-row gap-10 items-start">
+              {/* Avatar */}
+              <div className="w-28 h-28 rounded-3xl bg-gradient-to-br from-accent to-orange-hover flex items-center justify-center shrink-0 shadow-2xl">
+                <span className="text-4xl font-bold text-accent-foreground">AS</span>
               </div>
 
               {/* Info */}
               <div className="flex-1">
-                <h3 className="text-2xl font-bold mb-1">Achraf SAKLY</h3>
-                <p className="text-primary-foreground/80 mb-6">
+                <h3 className="text-3xl font-bold mb-2">Achraf SAKLY</h3>
+                <p className="text-primary-foreground/70 text-lg mb-8">
                   Ingénieur Génie Civil – Expert BIM
                 </p>
 
                 {/* Key message */}
-                <p className="text-lg mb-6 font-medium">
+                <p className="text-xl mb-8 font-medium text-primary-foreground/90 leading-relaxed">
                   Un seul interlocuteur, une vision globale, orientée résultat chantier.
                 </p>
 
-                {/* Credentials */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                  <div className="flex items-center gap-3">
-                    <Award className="w-5 h-5 text-accent" />
-                    <span className="text-sm">Ingénieur Génie Civil diplômé</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Building className="w-5 h-5 text-accent" />
-                    <span className="text-sm">Double culture terrain / BIM</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Users className="w-5 h-5 text-accent" />
-                    <span className="text-sm">AMO BIM – Référent BIM adjoint</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <FileSearch className="w-5 h-5 text-accent" />
-                    <span className="text-sm">SNCF Gares & Connexions</span>
-                  </div>
+                {/* Credentials - Modern grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                  {credentials.map((cred, index) => (
+                    <div 
+                      key={index}
+                      className="flex items-center gap-4 p-4 bg-primary-foreground/5 rounded-xl border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-all duration-300"
+                    >
+                      <cred.icon className="w-5 h-5 text-accent" />
+                      <span className="text-sm font-medium">{cred.text}</span>
+                    </div>
+                  ))}
                 </div>
 
-                {/* Quote */}
-                <blockquote className="border-l-4 border-accent pl-5 italic text-primary-foreground/80">
-                  "Le BIM n'est pas un livrable, c'est un outil de pilotage et de
-                  maîtrise des risques."
-                </blockquote>
+                {/* Quote - Modern style */}
+                <div className="relative pl-6 py-4 border-l-4 border-accent">
+                  <Quote className="absolute -left-3 -top-2 w-6 h-6 text-accent bg-primary" />
+                  <blockquote className="text-lg italic text-primary-foreground/80 leading-relaxed">
+                    "Le BIM n'est pas un livrable, c'est un outil de pilotage et de
+                    maîtrise des risques."
+                  </blockquote>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Experience badge */}
-          <div className="mt-10 text-center">
-            <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-8 px-8 py-4 bg-primary-foreground/5 rounded-xl border border-primary-foreground/10">
-              <div className="flex items-center gap-2">
-                <span className="text-2xl font-bold text-accent">SNCF</span>
-                <span className="text-sm text-primary-foreground/70">
+          {/* Experience badge - Modern pill */}
+          <div className="mt-12 text-center">
+            <div className="inline-flex flex-col sm:flex-row items-center gap-6 sm:gap-10 px-10 py-6 bg-primary-foreground/5 backdrop-blur-xl rounded-2xl border border-primary-foreground/10 shadow-xl">
+              <div className="flex items-center gap-3">
+                <span className="text-3xl font-bold text-accent">SNCF</span>
+                <span className="text-sm text-primary-foreground/60">
                   Gares & Connexions
                 </span>
               </div>
-              <div className="hidden sm:block w-px h-8 bg-primary-foreground/20" />
-              <span className="text-sm text-primary-foreground/70">
+              <div className="hidden sm:block w-px h-10 bg-primary-foreground/15" />
+              <span className="text-sm text-primary-foreground/60 text-center">
                 Coordination BIM multi-acteurs • Audits • Scan-to-BIM
               </span>
             </div>

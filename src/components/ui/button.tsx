@@ -9,25 +9,27 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm hover:shadow-md",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border-2 border-input bg-background hover:bg-secondary hover:border-muted-foreground/20",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-md",
+        outline: "border-2 border-border bg-background hover:bg-secondary hover:border-primary/20 shadow-sm hover:shadow-md",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-sm hover:shadow-md",
         ghost: "hover:bg-accent/10 hover:text-accent",
         link: "text-primary underline-offset-4 hover:underline",
-        // Premium CTA variants - Modern
-        cta: "bg-accent text-accent-foreground hover:bg-orange-hover shadow-md hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0 btn-glow",
-        "cta-outline": "border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-colors",
-        hero: "bg-accent text-accent-foreground hover:bg-orange-hover shadow-lg hover:shadow-glow hover:-translate-y-1 active:translate-y-0 btn-glow",
-        "hero-secondary": "bg-primary-foreground/10 text-primary-foreground border border-primary-foreground/20 hover:bg-primary-foreground/20 hover:border-primary-foreground/30 backdrop-blur-md",
-        navy: "bg-primary text-primary-foreground hover:bg-navy-light shadow-md hover:shadow-lg",
+        // Premium CTA variants - Ultra Modern
+        cta: "bg-gradient-to-r from-accent via-orange-hover to-accent text-accent-foreground shadow-lg hover:shadow-glow hover:-translate-y-1 active:translate-y-0 btn-glow bg-[length:200%_100%] hover:bg-right transition-all duration-500",
+        "cta-outline": "border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground shadow-sm hover:shadow-lg transition-all duration-300",
+        "cta-pulse": "bg-gradient-to-r from-accent to-orange-hover text-accent-foreground shadow-lg hover:shadow-glow hover:-translate-y-1 btn-glow btn-pulse",
+        hero: "bg-gradient-to-r from-accent via-orange-hover to-orange-glow text-accent-foreground shadow-xl hover:shadow-glow hover:-translate-y-1.5 active:translate-y-0 btn-glow bg-[length:200%_100%] hover:bg-right transition-all duration-500 text-base font-bold",
+        "hero-secondary": "bg-primary-foreground/10 text-primary-foreground border border-primary-foreground/20 hover:bg-primary-foreground/20 hover:border-primary-foreground/40 backdrop-blur-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300",
+        navy: "bg-primary text-primary-foreground hover:bg-navy-light shadow-lg hover:shadow-xl hover:-translate-y-0.5",
+        glass: "bg-card/60 backdrop-blur-xl border border-border/50 text-foreground hover:bg-card/80 hover:border-border shadow-md hover:shadow-lg hover:-translate-y-0.5",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-12 px-6 text-base",
-        xl: "h-14 px-8 text-lg",
-        icon: "h-10 w-10",
+        default: "h-11 px-5 py-2.5",
+        sm: "h-9 rounded-lg px-4 text-xs",
+        lg: "h-12 px-7 text-base rounded-xl",
+        xl: "h-14 px-8 text-base font-bold rounded-2xl",
+        icon: "h-11 w-11 rounded-xl",
       },
     },
     defaultVariants: {
