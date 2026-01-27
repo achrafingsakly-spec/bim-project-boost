@@ -23,24 +23,24 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-card/95 backdrop-blur-md shadow-md py-3"
-          : "bg-transparent py-5"
+          ? "bg-card/80 backdrop-blur-xl shadow-lg border-b border-border/50 py-3"
+          : "bg-transparent py-6"
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo - Modern */}
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center shadow-md group-hover:shadow-glow transition-all duration-300">
+          <div className="w-11 h-11 bg-gradient-to-br from-accent to-orange-hover rounded-xl flex items-center justify-center shadow-md group-hover:shadow-glow transition-all duration-300 group-hover:scale-105">
             <span className="text-accent-foreground font-bold text-lg">B</span>
           </div>
           <div className="flex flex-col">
-            <span className={`font-bold text-lg leading-tight transition-colors duration-300 ${isScrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
+            <span className={`font-bold text-lg leading-tight transition-colors duration-300 tracking-tight ${isScrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
               BIM ENGINEERING
             </span>
-            <span className={`text-xs tracking-wider transition-colors duration-300 ${isScrolled ? 'text-muted-foreground' : 'text-primary-foreground/70'}`}>
-              EI
+            <span className={`text-[10px] font-medium tracking-[0.2em] uppercase transition-colors duration-300 ${isScrolled ? 'text-muted-foreground' : 'text-primary-foreground/60'}`}>
+              Entreprise Individuelle
             </span>
           </div>
         </Link>

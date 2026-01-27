@@ -7,28 +7,30 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
         style={{ backgroundImage: `url(${heroBg})` }}
       >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-primary/75" />
+        {/* Modern Overlay with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/90 to-navy-light/80" />
+        {/* Subtle noise texture */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }} />
       </div>
 
       {/* Content */}
       <div className="container relative mx-auto px-4 py-32 md:py-40">
         <div className="max-w-4xl">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full mb-6 animate-fade-in">
-            <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-accent">
+          {/* Badge - Modern glassmorphism */}
+          <div className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-primary-foreground/10 backdrop-blur-md border border-primary-foreground/20 rounded-full mb-8 animate-fade-in">
+            <span className="w-2 h-2 bg-accent rounded-full animate-pulse shadow-glow" />
+            <span className="text-sm font-medium text-primary-foreground/90 tracking-wide">
               Ingénierie BIM – Expert indépendant
             </span>
           </div>
 
-          {/* H1 */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 animate-fade-in animation-delay-200">
+          {/* H1 - Modern typography */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground mb-6 animate-fade-in animation-delay-200 leading-[1.1]">
             Sécurisez vos projets BIM
-            <span className="text-gradient block mt-2">avant la phase travaux</span>
+            <span className="text-gradient block mt-3">avant la phase travaux</span>
           </h1>
 
           {/* Subtitle */}
@@ -60,29 +62,29 @@ const HeroSection = () => {
             Réponse rapide, échange sans engagement
           </p>
 
-          {/* Trust indicators */}
-          <div className="flex flex-wrap gap-6 md:gap-10 animate-fade-in animation-delay-600">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center">
+          {/* Trust indicators - Modern glass cards */}
+          <div className="flex flex-wrap gap-4 md:gap-6 animate-fade-in animation-delay-600">
+            <div className="flex items-center gap-3 px-4 py-3 bg-primary-foreground/5 backdrop-blur-sm rounded-xl border border-primary-foreground/10">
+              <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
                 <Shield className="w-5 h-5 text-accent" />
               </div>
-              <span className="text-sm text-primary-foreground/80">
+              <span className="text-sm font-medium text-primary-foreground/90">
                 Réduction des risques
               </span>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center">
+            <div className="flex items-center gap-3 px-4 py-3 bg-primary-foreground/5 backdrop-blur-sm rounded-xl border border-primary-foreground/10">
+              <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
                 <Clock className="w-5 h-5 text-accent" />
               </div>
-              <span className="text-sm text-primary-foreground/80">
+              <span className="text-sm font-medium text-primary-foreground/90">
                 Gain de temps
               </span>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center">
+            <div className="flex items-center gap-3 px-4 py-3 bg-primary-foreground/5 backdrop-blur-sm rounded-xl border border-primary-foreground/10">
+              <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
                 <CheckCircle className="w-5 h-5 text-accent" />
               </div>
-              <span className="text-sm text-primary-foreground/80">
+              <span className="text-sm font-medium text-primary-foreground/90">
                 Fiabilité des données
               </span>
             </div>

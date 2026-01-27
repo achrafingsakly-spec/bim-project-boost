@@ -5,21 +5,21 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-xl text-sm font-semibold ring-offset-background transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm hover:shadow-md",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        outline: "border-2 border-input bg-background hover:bg-secondary hover:border-muted-foreground/20",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent/10 hover:text-accent-foreground",
+        ghost: "hover:bg-accent/10 hover:text-accent",
         link: "text-primary underline-offset-4 hover:underline",
-        // Premium CTA variants
-        cta: "bg-accent text-accent-foreground hover:bg-orange-hover shadow-lg hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0",
-        "cta-outline": "border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground",
-        hero: "bg-accent text-accent-foreground hover:bg-orange-hover shadow-lg hover:shadow-glow hover:-translate-y-1 active:translate-y-0",
-        "hero-secondary": "bg-primary-foreground/10 text-primary-foreground border border-primary-foreground/30 hover:bg-primary-foreground hover:text-primary backdrop-blur-sm",
+        // Premium CTA variants - Modern
+        cta: "bg-accent text-accent-foreground hover:bg-orange-hover shadow-md hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0 btn-glow",
+        "cta-outline": "border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-colors",
+        hero: "bg-accent text-accent-foreground hover:bg-orange-hover shadow-lg hover:shadow-glow hover:-translate-y-1 active:translate-y-0 btn-glow",
+        "hero-secondary": "bg-primary-foreground/10 text-primary-foreground border border-primary-foreground/20 hover:bg-primary-foreground/20 hover:border-primary-foreground/30 backdrop-blur-md",
         navy: "bg-primary text-primary-foreground hover:bg-navy-light shadow-md hover:shadow-lg",
       },
       size: {

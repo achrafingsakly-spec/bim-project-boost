@@ -35,19 +35,18 @@ const ValuePropositionSection = () => {
           <div className="section-divider mx-auto" />
         </div>
 
-        {/* Values grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {/* Values grid - Modern cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {values.map((value, index) => (
             <div
               key={value.title}
-              className="flex gap-5 p-6 bg-card rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 group"
+              className="flex gap-5 p-7 bg-card rounded-2xl shadow-sm hover:shadow-lg transition-all duration-500 group border border-border/50 hover:border-accent/20"
             >
-              <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5 flex items-center justify-center shrink-0 group-hover:from-accent group-hover:to-orange-hover transition-all duration-500">
                 <value.icon className="w-6 h-6 text-accent group-hover:text-accent-foreground transition-colors duration-300" />
               </div>
               <div>
-                <h3 className="font-bold text-foreground mb-2 flex items-center gap-2">
-                  <span className="text-accent">✓</span>
+                <h3 className="font-bold text-foreground mb-2 text-lg">
                   {value.title}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
