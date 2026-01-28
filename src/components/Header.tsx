@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sparkles } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,18 +32,12 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo - Modern */}
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-11 h-11 bg-gradient-to-br from-accent to-orange-hover rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-glow transition-all duration-300 group-hover:scale-105">
-            <span className="text-accent-foreground font-bold text-lg">B</span>
-          </div>
-          <div className="flex flex-col">
-            <span className={`font-bold text-lg leading-tight transition-colors duration-300 tracking-tight ${isScrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
-              BIM ENGINEERING
-            </span>
-            <span className={`text-[10px] font-medium tracking-[0.2em] uppercase transition-colors duration-300 ${isScrolled ? 'text-muted-foreground' : 'text-primary-foreground/50'}`}>
-              Entreprise Individuelle
-            </span>
-          </div>
+        <Link to="/" className="flex items-center group">
+          <img 
+            src={logo} 
+            alt="BIM Engineering" 
+            className="h-12 w-auto transition-all duration-300 group-hover:scale-105"
+          />
         </Link>
 
         {/* Desktop Navigation */}
