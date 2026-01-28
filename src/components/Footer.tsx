@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Sparkles } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -10,18 +11,12 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-4 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-accent to-orange-hover rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-glow transition-all duration-300 group-hover:scale-105">
-              <span className="text-accent-foreground font-bold text-xl">B</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-xl leading-tight tracking-tight">
-                BIM ENGINEERING
-              </span>
-              <span className="text-xs text-primary-foreground/50 tracking-widest uppercase">
-                Entreprise Individuelle
-              </span>
-            </div>
+          <Link to="/" className="flex items-center group">
+            <img 
+              src={logo} 
+              alt="BIM Engineering" 
+              className="h-14 w-auto brightness-0 invert transition-all duration-300 group-hover:scale-105"
+            />
           </Link>
 
           {/* Center tagline */}
