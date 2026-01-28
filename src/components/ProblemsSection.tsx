@@ -1,4 +1,5 @@
 import { AlertTriangle, FileX, GitBranch, Target, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const problems = [
   {
@@ -25,7 +26,13 @@ const ProblemsSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Section header */}
-          <div className="text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-5 tracking-tight">
               Problèmes fréquents rencontrés
             </h2>
@@ -33,32 +40,42 @@ const ProblemsSection = () => {
             <p className="text-muted-foreground text-lg">
               Ces difficultés vous sont familières ?
             </p>
-          </div>
+          </motion.div>
 
           {/* Problems list - Modern cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-14">
             {problems.map((problem, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group flex items-center gap-5 p-6 bg-gradient-to-r from-destructive/5 to-destructive/10 rounded-2xl border border-destructive/10 hover:border-destructive/20 transition-all duration-300 hover:shadow-lg"
               >
                 <div className="w-14 h-14 rounded-2xl bg-destructive/10 flex items-center justify-center shrink-0 group-hover:bg-destructive/15 group-hover:scale-110 transition-all duration-300">
                   <problem.icon className="w-6 h-6 text-destructive" />
                 </div>
                 <p className="text-foreground font-medium text-lg">{problem.text}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* Transition message - Modern pill */}
-          <div className="text-center">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-center"
+          >
             <div className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-primary to-navy-light rounded-full text-primary-foreground shadow-xl">
               <span className="font-bold text-lg">
                 C'est précisément là qu'intervient BIM ENGINEERING EI
               </span>
               <ArrowRight className="w-6 h-6" />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -15,7 +15,7 @@ const Footer = () => {
             <img 
               src={logo} 
               alt="BIM Engineering" 
-              className="h-20 w-auto brightness-0 invert transition-all duration-300 group-hover:scale-105"
+              className="h-24 w-auto brightness-0 invert transition-all duration-300 group-hover:scale-105"
             />
           </Link>
 
