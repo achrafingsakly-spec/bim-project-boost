@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Send, CheckCircle, MessageSquare, Target, Lightbulb, Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
 
 const benefits = [
   {
@@ -62,7 +63,13 @@ const ContactSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Section header */}
-          <div className="text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-5 tracking-tight">
               Discutons de votre projet BIM
             </h2>
@@ -71,18 +78,27 @@ const ContactSection = () => {
               Vous avez un projet en cours ou à venir ? Un besoin ponctuel ou une
               mission ciblée ?
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Left column - Benefits */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6 }}
+            >
               <h3 className="text-2xl font-bold text-foreground mb-8">
                 Un échange rapide permet de :
               </h3>
               <div className="space-y-5 mb-10">
                 {benefits.map((benefit, index) => (
-                  <div
+                  <motion.div
                     key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
                     className="group flex items-center gap-5 p-5 bg-secondary/50 rounded-2xl hover:bg-secondary transition-all duration-300 hover:shadow-md"
                   >
                     <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
@@ -91,12 +107,18 @@ const ContactSection = () => {
                     <span className="font-semibold text-foreground text-lg">
                       {benefit.text}
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
               {/* Contact info - Modern glass card */}
-              <div className="glass-card p-8 border-l-4 border-l-accent">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="glass-card p-8 border-l-4 border-l-accent"
+              >
                 <p className="font-bold text-foreground text-xl mb-2">BIM ENGINEERING EI</p>
                 <p className="text-muted-foreground mb-4">
                   Consultant BIM indépendant
@@ -105,11 +127,17 @@ const ContactSection = () => {
                   <Sparkles className="w-4 h-4" />
                   <span>Réponse sous 24-48h</span>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Right column - Form */}
-            <div className="glass-card p-8 md:p-10">
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6 }}
+              className="glass-card p-8 md:p-10"
+            >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label
@@ -199,7 +227,7 @@ const ContactSection = () => {
                   Vos données sont confidentielles et ne seront jamais partagées.
                 </p>
               </form>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

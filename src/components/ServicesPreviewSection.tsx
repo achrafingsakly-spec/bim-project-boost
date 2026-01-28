@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Cuboid, ScanLine, FileSearch, Calendar, Eye, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -45,7 +46,13 @@ const ServicesPreviewSection = () => {
     <section id="services" className="py-24 md:py-32 bg-card scroll-mt-20">
       <div className="container mx-auto px-4">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-5 tracking-tight">
             Domaines d'intervention
           </h2>
@@ -53,40 +60,51 @@ const ServicesPreviewSection = () => {
           <p className="text-muted-foreground max-w-xl mx-auto text-lg">
             Une offre complète pour maîtriser vos projets BIM de A à Z
           </p>
-        </div>
+        </motion.div>
 
         {/* Services grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-14">
           {services.map((service, index) => (
-            <Card
+            <motion.div
               key={service.title}
-              className="group cursor-pointer bg-card border border-border/50 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden gradient-border"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <CardContent className="p-7">
-                {/* Icon with gradient background */}
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                  <service.icon className={`w-8 h-8 ${service.iconColor}`} />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
-              </CardContent>
-            </Card>
+              <Card className="group cursor-pointer h-full bg-card border border-border/50 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden gradient-border">
+                <CardContent className="p-7">
+                  {/* Icon with gradient background */}
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                    <service.icon className={`w-8 h-8 ${service.iconColor}`} />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-center"
+        >
           <Button variant="cta" size="lg" className="group" asChild>
             <a href="#contact">
               Découvrir les services en détail
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
             </a>
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

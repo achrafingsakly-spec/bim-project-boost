@@ -1,4 +1,5 @@
 import { Award, Building, Users, FileSearch, Quote } from "lucide-react";
+import { motion } from "framer-motion";
 
 const credentials = [
   { icon: Award, text: "Ingénieur Génie Civil diplômé" },
@@ -17,20 +18,38 @@ const CredibilitySection = () => {
       <div className="container relative mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Section header */}
-          <div className="text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 tracking-tight">
               Votre interlocuteur BIM
             </h2>
             <div className="w-20 h-1.5 bg-gradient-to-r from-accent to-orange-glow rounded-full mx-auto" />
-          </div>
+          </motion.div>
 
           {/* Profile card - Glass effect */}
-          <div className="glass-card-dark p-8 md:p-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="glass-card-dark p-8 md:p-12"
+          >
             <div className="flex flex-col md:flex-row gap-10 items-start">
               {/* Avatar */}
-              <div className="w-28 h-28 rounded-3xl bg-gradient-to-br from-accent to-orange-hover flex items-center justify-center shrink-0 shadow-2xl">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="w-28 h-28 rounded-3xl bg-gradient-to-br from-accent to-orange-hover flex items-center justify-center shrink-0 shadow-2xl"
+              >
                 <span className="text-4xl font-bold text-accent-foreground">AS</span>
-              </div>
+              </motion.div>
 
               {/* Info */}
               <div className="flex-1">
@@ -47,30 +66,46 @@ const CredibilitySection = () => {
                 {/* Credentials - Modern grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
                   {credentials.map((cred, index) => (
-                    <div 
+                    <motion.div 
                       key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                       className="flex items-center gap-4 p-4 bg-primary-foreground/5 rounded-xl border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-all duration-300"
                     >
                       <cred.icon className="w-5 h-5 text-accent" />
                       <span className="text-sm font-medium">{cred.text}</span>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
 
                 {/* Quote - Modern style */}
-                <div className="relative pl-6 py-4 border-l-4 border-accent">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  className="relative pl-6 py-4 border-l-4 border-accent"
+                >
                   <Quote className="absolute -left-3 -top-2 w-6 h-6 text-accent bg-primary" />
                   <blockquote className="text-lg italic text-primary-foreground/80 leading-relaxed">
                     "Le BIM n'est pas un livrable, c'est un outil de pilotage et de
                     maîtrise des risques."
                   </blockquote>
-                </div>
+                </motion.div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Experience badge - Modern pill */}
-          <div className="mt-12 text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-12 text-center"
+          >
             <div className="inline-flex flex-col sm:flex-row items-center gap-6 sm:gap-10 px-10 py-6 bg-primary-foreground/5 backdrop-blur-xl rounded-2xl border border-primary-foreground/10 shadow-xl">
               <div className="flex items-center gap-3">
                 <span className="text-3xl font-bold text-accent">SNCF</span>
@@ -83,7 +118,7 @@ const CredibilitySection = () => {
                 Coordination BIM multi-acteurs • Audits • Scan-to-BIM
               </span>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

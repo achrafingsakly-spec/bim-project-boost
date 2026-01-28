@@ -36,7 +36,7 @@ const Header = () => {
           <img 
             src={logo} 
             alt="BIM Engineering" 
-            className="h-16 w-auto transition-all duration-300 group-hover:scale-105"
+            className="h-20 w-auto transition-all duration-300 group-hover:scale-105"
           />
         </Link>
 
