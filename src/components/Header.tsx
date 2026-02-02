@@ -24,10 +24,10 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white ${
         isScrolled
-          ? "bg-card/70 backdrop-blur-2xl shadow-lg border-b border-border/30 py-3"
-          : "bg-transparent py-6"
+          ? "shadow-lg border-b border-border/30 py-3"
+          : "py-6"
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
@@ -36,7 +36,7 @@ const Header = () => {
           <img 
             src={logo} 
             alt="BIM Engineering" 
-            className="h-20 w-auto transition-all duration-300 group-hover:scale-105"
+            className="h-28 w-auto transition-all duration-300 group-hover:scale-105"
           />
         </Link>
 
@@ -46,9 +46,7 @@ const Header = () => {
             <a
               key={link.href}
               href={link.href}
-              className={`font-medium transition-all duration-300 hover:text-accent relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all after:duration-300 hover:after:w-full ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
-              }`}
+              className="font-medium transition-all duration-300 hover:text-accent text-foreground relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
             >
               {link.label}
             </a>
@@ -63,14 +61,14 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className={`md:hidden p-2.5 rounded-xl transition-all duration-300 ${isScrolled ? 'bg-secondary hover:bg-secondary/80' : 'bg-primary-foreground/10 hover:bg-primary-foreground/20'}`}
+          className="md:hidden p-2.5 rounded-xl transition-all duration-300 bg-secondary hover:bg-secondary/80"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
           {isMobileMenuOpen ? (
-            <X className={`w-5 h-5 ${isScrolled ? 'text-foreground' : 'text-primary-foreground'}`} />
+            <X className="w-5 h-5 text-foreground" />
           ) : (
-            <Menu className={`w-5 h-5 ${isScrolled ? 'text-foreground' : 'text-primary-foreground'}`} />
+            <Menu className="w-5 h-5 text-foreground" />
           )}
         </button>
       </div>
