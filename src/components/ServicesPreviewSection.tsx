@@ -53,10 +53,21 @@ const ServicesPreviewSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-5 tracking-tight">
+          <motion.h2 
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-5 tracking-tight"
+            whileInView={{ opacity: [0, 1], y: [20, 0] }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             Domaines d'intervention
-          </h2>
-          <div className="section-divider mx-auto mb-5" />
+          </motion.h2>
+          <motion.div 
+            className="section-divider mx-auto mb-5"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          />
           <p className="text-muted-foreground max-w-xl mx-auto text-lg">
             Une offre complète pour maîtriser vos projets BIM de A à Z
           </p>
@@ -67,17 +78,22 @@ const ServicesPreviewSection = () => {
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -8, transition: { type: "spring", stiffness: 400, damping: 17 } }}
             >
-              <Card className="group cursor-pointer h-full bg-card border border-border/50 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden gradient-border">
+              <Card className="group cursor-pointer h-full bg-card border border-border/50 shadow-md hover:shadow-xl transition-all duration-500 overflow-hidden gradient-border">
                 <CardContent className="p-7">
                   {/* Icon with gradient background */}
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                  <motion.div 
+                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6`}
+                    whileHover={{ scale: 1.15, rotate: [0, -5, 5, 0] }}
+                    transition={{ duration: 0.4 }}
+                  >
                     <service.icon className={`w-8 h-8 ${service.iconColor}`} />
-                  </div>
+                  </motion.div>
                   <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
                     {service.title}
                   </h3>
@@ -98,12 +114,18 @@ const ServicesPreviewSection = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center"
         >
-          <Button variant="cta" size="lg" className="group" asChild>
-            <a href="#contact">
-              Découvrir les services en détail
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
-            </a>
-          </Button>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <Button variant="cta" size="lg" className="group" asChild>
+              <a href="#contact">
+                Découvrir les services en détail
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
+              </a>
+            </Button>
+          </motion.div>
         </motion.div>
       </div>
     </section>

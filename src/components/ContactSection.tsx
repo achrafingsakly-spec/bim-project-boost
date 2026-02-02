@@ -73,7 +73,13 @@ const ContactSection = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-5 tracking-tight">
               Discutons de votre projet BIM
             </h2>
-            <div className="section-divider mx-auto mb-6" />
+            <motion.div 
+              className="section-divider mx-auto mb-6"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            />
             <p className="text-muted-foreground max-w-xl mx-auto text-lg">
               Vous avez un projet en cours ou à venir ? Un besoin ponctuel ou une
               mission ciblée ?
@@ -95,15 +101,23 @@ const ContactSection = () => {
                 {benefits.map((benefit, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="group flex items-center gap-5 p-5 bg-secondary/50 rounded-2xl hover:bg-secondary transition-all duration-300 hover:shadow-md"
+                    transition={{ duration: 0.4, delay: index * 0.15 }}
+                    whileHover={{ 
+                      x: 8, 
+                      transition: { type: "spring", stiffness: 400, damping: 17 } 
+                    }}
+                    className="group flex items-center gap-5 p-5 bg-secondary/50 rounded-2xl hover:bg-secondary transition-all duration-300 hover:shadow-md cursor-default"
                   >
-                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <motion.div 
+                      className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.gradient} flex items-center justify-center`}
+                      whileHover={{ scale: 1.15, rotate: [0, -5, 5, 0] }}
+                      transition={{ duration: 0.4 }}
+                    >
                       <benefit.icon className={`w-6 h-6 ${benefit.iconColor}`} />
-                    </div>
+                    </motion.div>
                     <span className="font-semibold text-foreground text-lg">
                       {benefit.text}
                     </span>
@@ -111,12 +125,13 @@ const ContactSection = () => {
                 ))}
               </div>
 
-              {/* Contact info - Modern glass card */}
+              {/* Contact info - Modern glass card with hover */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                whileHover={{ scale: 1.02 }}
                 className="glass-card p-8 border-l-4 border-l-accent"
               >
                 <p className="font-bold text-foreground text-xl mb-2">BIM ENGINEERING EI</p>
@@ -124,18 +139,24 @@ const ContactSection = () => {
                   Consultant BIM indépendant
                 </p>
                 <div className="flex items-center gap-2 text-accent font-medium">
-                  <Sparkles className="w-4 h-4" />
+                  <motion.div
+                    animate={{ rotate: [0, 360] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                  >
+                    <Sparkles className="w-4 h-4" />
+                  </motion.div>
                   <span>Réponse sous 24-48h</span>
                 </div>
               </motion.div>
             </motion.div>
 
-            {/* Right column - Form */}
+            {/* Right column - Form with enhanced animation */}
             <motion.div 
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.01 }}
               className="glass-card p-8 md:p-10"
             >
               <form onSubmit={handleSubmit} className="space-y-6">
